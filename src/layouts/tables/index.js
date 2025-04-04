@@ -44,7 +44,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  과제수행자 테이블
+                  DIA 인증 테이블
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
