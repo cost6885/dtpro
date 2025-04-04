@@ -99,12 +99,10 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+  company: { href: "http://www.nsgportal.net/", name: "Digital Transformation Team" },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "http://www.nsgportal.net/", name: "Nongshim" }, // 회사 링크 수정
+    // "About Us"와 "Blog" 링크를 비활성화, "License" 삭제
   ],
 };
 
