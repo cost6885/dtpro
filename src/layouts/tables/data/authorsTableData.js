@@ -40,7 +40,7 @@ export default function data() {
 
   return {
     columns: [
-      { Header: "과제수행자", accessor: "taskExecutor", width: "45%", align: "left" },
+      { Header: "이름", accessor: "taskExecutor", width: "45%", align: "left" },
       { Header: "소속", accessor: "department", align: "left" },
       { Header: "상태", accessor: "status", align: "center" },
       { Header: "인증일", accessor: "certificationDate", align: "center" },
