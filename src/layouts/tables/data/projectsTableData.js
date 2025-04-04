@@ -44,6 +44,7 @@ export default function data() {
   return {
     columns: [
       { Header: "과제명", accessor: "project", width: "30%", align: "left" },
+      { Header: "과제수행자", accessor: "name", align: "left" },  // 과제수행자 컬럼 추가
       { Header: "수준", accessor: "level", align: "left" },
       { Header: "현황", accessor: "status", align: "center" },
       { Header: "완료도", accessor: "completion", align: "center" },
@@ -52,6 +53,7 @@ export default function data() {
     rows: [
       {
         project: <Project image={LogoAsana} name="홈페이지 리뉴얼" />,
+        name: "김상우", // 과제수행자 이름 추가
         level: "class1",
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
@@ -62,6 +64,7 @@ export default function data() {
       },
       {
         project: <Project image={logoGithub} name="모바일 앱 개발" />,
+        name: "서민표", // 과제수행자 이름 추가
         level: "class2",
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
@@ -72,6 +75,7 @@ export default function data() {
       },
       {
         project: <Project image={logoAtlassian} name="데이터 분석 프로젝트" />,
+        name: "오민석", // 과제수행자 이름 추가
         level: "class3",
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
@@ -82,6 +86,7 @@ export default function data() {
       },
       {
         project: <Project image={logoSpotify} name="교육 플랫폼 개발" />,
+        name: "이병찬", // 과제수행자 이름 추가
         level: "class2",
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
