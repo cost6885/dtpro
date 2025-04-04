@@ -28,12 +28,12 @@ import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import authorsTableData from "layouts/tables/data/authorsTableData";
-import projectsTableData from "layouts/tables/data/projectsTableData";
+import taskExecutorTableData from "layouts/tables/data/taskExecutorTableData";
+import projectStatusTableData from "layouts/tables/data/projectStatusTableData";
 
 function Tables() {
-  const { columns, rows } = authorsTableData();
-  const { columns: pColumns, rows: pRows } = projectsTableData();
+  const { columns, rows } = taskExecutorTableData();
+  const { columns: pColumns, rows: pRows } = projectStatusTableData();
 
   return (
     <DashboardLayout>
@@ -53,7 +53,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Authors Table
+                  과제수행자 테이블
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
@@ -80,7 +80,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Projects Table
+                  과제 수행 현황 테이블
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
