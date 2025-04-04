@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useState } from "react";
 
 // @mui material components
@@ -29,7 +14,37 @@ import MDTypography from "components/MDTypography";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import data from "layouts/dashboard/components/Projects/data";
+const data = () => {
+  return {
+    columns: [
+      { Header: "과제명", accessor: "taskName" },  // 과제명
+      { Header: "과제 수행자", accessor: "taskMember" },  // 과제 수행자
+      { Header: "현황", accessor: "status" },  // 현황
+    ],
+    rows: [
+      {
+        taskName: "Python 기초 교육",
+        taskMember: "김상우, 오민석",
+        status: "진행 중",
+      },
+      {
+        taskName: "React 개발 입문",
+        taskMember: "서민표, 이병찬",
+        status: "완료",
+      },
+      {
+        taskName: "기초 프로그래밍 교육",
+        taskMember: "전진, 정태양",
+        status: "진행 중",
+      },
+      {
+        taskName: "데이터 분석 실습",
+        taskMember: "조시묵, 김관수",
+        status: "완료",
+      },
+    ],
+  };
+};
 
 function Projects() {
   const { columns, rows } = data();
@@ -64,7 +79,7 @@ function Projects() {
       <MDBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
         <MDBox>
           <MDTypography variant="h6" gutterBottom>
-            Projects
+            과제 관리
           </MDTypography>
           <MDBox display="flex" alignItems="center" lineHeight={0}>
             <Icon
@@ -77,7 +92,7 @@ function Projects() {
               done
             </Icon>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              &nbsp;<strong>30 done</strong> this month
+              &nbsp;<strong>30개 과제 완료</strong> 이번 달
             </MDTypography>
           </MDBox>
         </MDBox>
