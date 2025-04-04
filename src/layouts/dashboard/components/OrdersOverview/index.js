@@ -1,19 +1,4 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
+import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
@@ -25,57 +10,57 @@ import MDTypography from "components/MDTypography";
 import TimelineItem from "examples/Timeline/TimelineItem";
 
 function OrdersOverview() {
+  const [scheduleData, setScheduleData] = useState([]);
+
+  // 백엔드에서 교육 일정 데이터를 가져오는 useEffect 훅
+  useEffect(() => {
+    fetch("http://3.34.97.222:5000/api/education_schedule")  // 실제 API URL에 맞게 수정
+      .then(response => response.json())
+      .then(data => {
+        console.log("Education Schedule Data:", data);  // 콘솔에서 데이터 확인
+        setScheduleData(data);  // 상태에 교육 일정 데이터 저장
+      })
+      .catch(error => {
+        console.error("Error fetching education schedule data:", error);  // 오류 확인
+      });
+  }, []);
+
   return (
     <Card sx={{ height: "100%" }}>
       <MDBox pt={3} px={3}>
         <MDTypography variant="h6" fontWeight="medium">
-          Orders overview
+          교육 일정
         </MDTypography>
         <MDBox mt={0} mb={2}>
           <MDTypography variant="button" color="text" fontWeight="regular">
             <MDTypography display="inline" variant="body2" verticalAlign="middle">
-              <Icon sx={{ color: ({ palette: { success } }) => success.main }}>arrow_upward</Icon>
+              <Icon sx={{ color: ({ palette: { success } }) => success.main }}>calendar_today</Icon>
             </MDTypography>
             &nbsp;
             <MDTypography variant="button" color="text" fontWeight="medium">
-              24%
-            </MDTypography>{" "}
-            this month
+              이번 달 교육 일정
+            </MDTypography>
           </MDTypography>
         </MDBox>
       </MDBox>
       <MDBox p={2}>
-        <TimelineItem
-          color="success"
-          icon="notifications"
-          title="$2400, Design changes"
-          dateTime="22 DEC 7:20 PM"
-        />
-        <TimelineItem
-          color="error"
-          icon="inventory_2"
-          title="New order #1832412"
-          dateTime="21 DEC 11 PM"
-        />
-        <TimelineItem
-          color="info"
-          icon="shopping_cart"
-          title="Server payments for April"
-          dateTime="21 DEC 9:34 PM"
-        />
-        <TimelineItem
-          color="warning"
-          icon="payment"
-          title="New card added for order #4395133"
-          dateTime="20 DEC 2:20 AM"
-        />
-        <TimelineItem
-          color="primary"
-          icon="vpn_key"
-          title="New card added for order #4395133"
-          dateTime="18 DEC 4:54 AM"
-          lastItem
-        />
+        {scheduleData.length === 0 ? (
+          <MDTypography variant="h6" color="text.secondary">
+            교육 일정이 없습니다.
+          </MDTypography>
+        ) : (
+          scheduleData.map((schedule, index) => (
+            <TimelineItem
+              key={index}
+              color="info"  // 색상은 필요에 따라 변경
+              icon="school"
+              title={schedule.title}  // 교육 제목
+              dateTime={schedule.dateTime}  // 교육 일정 시간
+              description={schedule.status}  // 교육 상태 (예: 진행 중, 완료 등)
+              lastItem={index === scheduleData.length - 1}  // 마지막 항목에 스타일 적용
+            />
+          ))
+        )}
       </MDBox>
     </Card>
   );
