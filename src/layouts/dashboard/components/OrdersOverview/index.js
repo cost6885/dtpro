@@ -14,6 +14,8 @@ function OrdersOverview() {
 
   // 백엔드에서 교육 일정 데이터를 가져오는 useEffect 훅
   useEffect(() => {
+    // 아래 API 호출 부분은 나중에 연결할 때 활성화
+    /*
     fetch("http://3.34.97.222:5000/api/education_schedule")  // 실제 API URL에 맞게 수정
       .then(response => response.json())
       .then(data => {
@@ -23,6 +25,13 @@ function OrdersOverview() {
       .catch(error => {
         console.error("Error fetching education schedule data:", error);  // 오류 확인
       });
+    */
+    // 임시 데이터 (나중에 API 연결 후 제거)
+    const tempData = [
+      { title: "교육 1", dateTime: "2025-04-10 10:00", status: "진행 중" },
+      { title: "교육 2", dateTime: "2025-04-15 14:00", status: "완료" },
+    ];
+    setScheduleData(tempData); // 임시 데이터로 상태 업데이트
   }, []);
 
   return (
