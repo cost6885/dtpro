@@ -17,12 +17,12 @@ function OrdersOverview() {
     // 아래 API 호출 부분은 나중에 연결할 때 활성화
     /*
     fetch("http://3.34.97.222:5000/api/education_schedule")  // 실제 API URL에 맞게 수정
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         console.log("Education Schedule Data:", data);  // 콘솔에서 데이터 확인
         setScheduleData(data);  // 상태에 교육 일정 데이터 저장
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching education schedule data:", error);  // 오류 확인
       });
     */
@@ -61,12 +61,12 @@ function OrdersOverview() {
           scheduleData.map((schedule, index) => (
             <TimelineItem
               key={index}
-              color="info"  // 색상은 필요에 따라 변경
+              color="info" // 색상은 필요에 따라 변경
               icon="school"
-              title={schedule.title}  // 교육 제목
-              dateTime={schedule.dateTime}  // 교육 일정 시간
-              description={schedule.status}  // 교육 상태 (예: 진행 중, 완료 등)
-              lastItem={index === scheduleData.length - 1}  // 마지막 항목에 스타일 적용
+              title={schedule.title} // 교육 제목
+              dateTime={schedule.dateTime} // 교육 일정 시간
+              description={schedule.status} // 교육 상태 (예: 진행 중, 완료 등)
+              lastItem={index === scheduleData.length - 1} // 마지막 항목에 스타일 적용
             />
           ))
         )}
